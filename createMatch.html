@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Partido de Pádel</title>
+    <!-- Agregar Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Registro de Partido de Pádel</h1>
+
+        <!-- Sección para la primera pareja -->
+        <h3>Pareja 1</h3>
+        <form action="match.html" method="get">
+            <div class="form-group">
+                <label for="jugador1_p1">Nombre del Jugador 1:</label>
+                <input type="text" class="form-control" id="jugador1_p1" name="jugador1_p1" required>
+            </div>
+            <div class="form-group">
+                <label for="jugador2_p1">Nombre del Jugador 2:</label>
+                <input type="text" class="form-control" id="jugador2_p1" name="jugador2_p1" required>
+            </div>
+
+        <!-- Sección para la segunda pareja -->
+        <h3>Pareja 2</h3>
+            <div class="form-group">
+                <label for="jugador1_p2">Nombre del Jugador 1:</label>
+                <input type="text" class="form-control" id="jugador1_p2" name="jugador1_p2" required>
+            </div>
+            <div class="form-group">
+                <label for="jugador2_p2">Nombre del Jugador 2:</label>
+                <input type="text" class="form-control" id="jugador2_p2" name="jugador2_p2" required>
+            </div>
+
+            <!-- Otras secciones del formulario -->
+            <div class="form-group">
+                <label for="sets">Cantidad de Sets:</label>
+                <select class="form-control" id="sets" name="sets">
+                    <option value="3">3 sets</option>
+                    <option value="5">5 sets</option>
+                </select>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="saque_random" name="saque_random">
+                <label class="form-check-label" for="saque_random">Saque Random</label>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="punto_oro" name="punto_oro">
+                <label class="form-check-label" for="punto_oro">Punto de Oro</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+
+    <!-- Agregar scripts de Bootstrap (jQuery y Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
