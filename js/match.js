@@ -20,7 +20,6 @@ var sets = parseInt(getParameterByName("sets"));
 
 const pareja1 = `${jugadorP11} / ${jugadorP12}`;
 const pareja2 = `${jugadorP21} / ${jugadorP22}`;
-var sets = parseInt(getParameterByName('sets'));
 
 // Inicializar el puntaje de juegos para cada pareja
 let juegosPareja1 = 0;
@@ -53,9 +52,11 @@ $('#scoreboard-head').append('<th>Pareja</th><th>Game</th>')
 
 var scoreboardBody = document.getElementById('scoreboard-body');
 llenarTablero(scoreboardBody);
-
+var set = obtenerSet();
 // Evento de clic para sumar puntos a la pareja 1
 document.getElementById('btnPareja1').addEventListener('click', function() {
+
+
     var game = parseInt(document.getElementById('game_pareja1').innerText); //gamepareja1
     //getScoreGameBoard(gamePareja1)
     if (game < 30) {
@@ -64,17 +65,22 @@ document.getElementById('btnPareja1').addEventListener('click', function() {
     else if(game == 30){
         game += 10;
     } else if (game == 40) {
-        // Agregar lógica para sumar 1 al set 1
-        // Por ejemplo:
-        var set1 = parseInt(document.getElementById('p1_set1').textContent);
-        var set2 = parseInt(document.getElementById('p1_set2').textContent);
+        
+        var set1 = parseInt(document.getElementById('p1_set'+set).textContent);
+        if(set < sets){
+            var set2 = parseInt(document.getElementById('p1_set'+(set+1)).textContent);
+        }else{
+            var set2 = parseInt(document.getElementById('p1_set'+(set)).textContent);
+        }
+        
         set1 += 1;
         if(set1 <= 6){
-            document.getElementById('p1_set1').textContent = set1;
+            document.getElementById('p1_set'+ set).textContent = set1;
         } else{
             set1 = 0;
             set2 += 1
-            document.getElementById('p1_set2').textContent = set2;
+            document.getElementById('p1_set'+(set+1)).textContent = set2;
+            set++;
         }
 
         game = 0; // Reiniciar puntaje del game
@@ -83,9 +89,9 @@ document.getElementById('btnPareja1').addEventListener('click', function() {
 
     document.getElementById('game_pareja1').textContent = game; //gamepareja1
 });
-
 // Evento de clic para sumar puntos a la pareja 2
 document.getElementById('btnPareja2').addEventListener('click', function() {
+
     var game = parseInt(document.getElementById('game_pareja2').textContent); //gamepareja2
     //getScoreGameBoard(gamePareja2)
 
@@ -95,24 +101,43 @@ document.getElementById('btnPareja2').addEventListener('click', function() {
     else if(game == 30){
         game += 10;
     } else if (game == 40) {
-        // Agregar lógica para sumar 1 al set 1
-        // Por ejemplo:
-        var set1 = parseInt(document.getElementById('p2_set1').textContent);
-        var set2 = parseInt(document.getElementById('p2_set2').textContent);
+
+        var set1 = parseInt(document.getElementById('p2_set'+set).textContent);
+        if(set < sets){
+            var set2 = parseInt(document.getElementById('p2_set'+(set+1)).textContent);
+        }else{
+            var set2 = parseInt(document.getElementById('p2_set'+(set)).textContent);
+        }
         set1 += 1;
         if(set1 <= 6){
-            document.getElementById('p2_set1').textContent = set1;
+            document.getElementById('p2_set'+ set).textContent = set1;
         } else{
             set1 = 0;
             set2 += 1
-            document.getElementById('p2_set2').textContent = set2;
+            document.getElementById('p2_set'+(set+1)).textContent = set2;
+            set++;
         }
 
         game = 0; // Reiniciar puntaje del game
-        document.getElementById('game_pareja2').textContent = 0;
+        document.getElementById('game_pareja1').textContent = 0;
     }
 
-    document.getElementById('game_pareja2').textContent = game ; // gamePareja2
+    document.getElementById('game_pareja2').textContent = game; //gamepareja1
 });
+
+function obtenerSet(){  
+    for(var i=1; i<=sets; i++){
+        id_set_p1 = "p1_set"+i;
+        id_set_p2 = "p2_set"+i;
+        var set_p1 = parseInt(document.getElementById(id_set_p1).textContent);
+        var set_p2 = parseInt(document.getElementById(id_set_p2).textContent);
+        if(set_p1 == 6 || set_p1 == 7 || set_p2 == 6 || set_p2 == 7){
+            continue;
+        } else{
+            return i;
+        } 
+    }
+
+}
 
 
