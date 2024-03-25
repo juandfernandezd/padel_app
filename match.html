@@ -13,15 +13,8 @@
         <h1 class="mt-5">Scoreboard de Pádel</h1>
         <div class="scoreboard mt-4">
             <table class="table">
-                <thead>
-                    <tr>
-                        <th>Pareja</th>
-                        <th>Game</th>
-                        <th>Set 1</th>
-                        <th>Set 2</th>
-                        <th>Set 3</th>
-                        <!-- Agregar más columnas según la cantidad de sets -->
-                    </tr>
+                <thead id="scoreboard-head">
+                    
                 </thead>
                 <tbody id="scoreboard-body">
                     <!-- Aquí se llenarán dinámicamente los datos -->
@@ -35,6 +28,7 @@
             <div class="col-md-6">
                 <button class="btn btn-primary" id="btnPareja2">Sumar Punto (Pareja 2)</button>
             </div>
+            <input type="hidden" value="1">
         </div>
     </div>
 
@@ -42,7 +36,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/match.js"> 
-    </script>
+    <script src="js/match.js"></script> 
+
+    <!--<script src="js/match_prueba.js"></script>-->
 </body>
 </html>
